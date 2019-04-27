@@ -18,7 +18,8 @@ class MagentoInstaller
     $this->archive_name = $archive_name;
   }
 
-  public function setUp() {
+  public function setUp(): void
+  {
     try {
       $this->downloadFile();
       $this->extractFile();
@@ -32,7 +33,7 @@ class MagentoInstaller
     }
   }
 
-  protected function renameDirectory()
+  private function renameDirectory(): void
   {
     rename(
       glob($this->directory . '*')[0],
@@ -40,19 +41,19 @@ class MagentoInstaller
     );
   }
 
-  protected function downloadFile()
+  private function downloadFile(): void
   {
     copy($this->archive_url, $this->archive_name);
   }
 
-  protected function extractFile()
+  private function extractFile(): void
   {
     $phar = new \PharData($this->archive_name);
     $phar->decompress();
     $phar->extractTo($this->directory);
   }
 
-  protected function cleanUpFile()
+  private function cleanUpFile(): void
   {
     unlink($this->archive_name);
     unlink(str_replace('.gz', '', $this->archive_name));
