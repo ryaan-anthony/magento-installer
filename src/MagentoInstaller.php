@@ -20,15 +20,10 @@ class MagentoInstaller
 
   public function setUp(): void
   {
-    try {
-      $this->downloadFile();
-      $this->extractFile();
-      $this->cleanUpFile();
-      $this->renameDirectory();
-    } catch (\Exception $e) {
-      print 'Error occurred during setup!!'.PHP_EOL;
-      print $e->getMessage().PHP_EOL;
-    }
+    $this->downloadFile();
+    $this->extractFile();
+    $this->cleanUpFile();
+    $this->renameDirectory();
   }
 
   private function renameDirectory(): void
