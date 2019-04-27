@@ -4,7 +4,7 @@ namespace RyaanAnthony;
 
 class MagentoInstaller
 {
-  const MAGENTO_DIR = 'magento';
+  const MAGENTO_DIR = 'magento/';
   const ARCHIVE_NAME = 'magento.tar.gz';
   const ARCHIVE_URL = 'https://github.com/OpenMage/magento-mirror/archive/1.9.4.1.tar.gz';
 
@@ -37,6 +37,10 @@ class MagentoInstaller
   {
     rename(
       glob($this->directory . '*')[0],
+      'temp-magento'
+    );
+    rename(
+      'temp-magento',
       $this->directory
     );
   }
