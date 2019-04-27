@@ -1,0 +1,7 @@
+{
+    "name": "ryaan-anthony/magento-installer",
+    "description": "Programmatically Install Magento v1",
+    "autoload": {
+        "psr-4": {"RyaanAnthony\\": "src/"}
+    }
+}
