@@ -25,8 +25,6 @@ class MagentoInstaller
       $this->extractFile();
       $this->cleanUpFile();
       $this->renameDirectory();
-
-      print 'Setup complete!'.PHP_EOL;
     } catch (\Exception $e) {
       print 'Error occurred during setup!!'.PHP_EOL;
       print $e->getMessage().PHP_EOL;
