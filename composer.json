@@ -1,7 +1,8 @@
 {
     "name": "ryaan-anthony/magento-installer",
     "description": "Programmatically Install Magento v1",
+    "require": { "php": ">=7.0" },
     "autoload": {
-        "psr-4": {"RyaanAnthony\\": "src"}
+        "psr-4": { "RyaanAnthony\\": "src" }
     }
 }
