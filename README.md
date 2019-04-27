@@ -31,11 +31,6 @@ composer require ryaan_anthony/magento-installer
   $magentoInstaller->setUp();
 ```
 
-* Get the Magento application directory
-
-```
-  $magentoInstaller->getDirectory();
-```
 
 ## Caveats
 

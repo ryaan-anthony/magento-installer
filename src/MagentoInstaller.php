@@ -4,7 +4,7 @@ namespace RyaanAnthony;
 
 class MagentoInstaller
 {
-  const MAGENTO_DIR = __DIR__.'/../magento/';
+  const MAGENTO_DIR = '../magento/';
   const ARCHIVE_NAME = 'magento.tar.gz';
   const ARCHIVE_URL = 'https://github.com/OpenMage/magento-mirror/archive/1.9.4.1.tar.gz';
 
@@ -23,6 +23,7 @@ class MagentoInstaller
       $this->downloadFile();
       $this->extractFile();
       $this->cleanUpFile();
+      $this->renameDirectory();
 
       print 'Setup complete!'.PHP_EOL;
     } catch (\Exception $e) {
@@ -31,9 +32,12 @@ class MagentoInstaller
     }
   }
 
-  public function getDirectory()
+  protected function renameDirectory()
   {
-    return glob($this->directory . '*')[0];
+    rename(
+      glob($this->directory . '*')[0],
+      $this->directory
+    );
   }
 
   protected function downloadFile()
@@ -50,7 +54,7 @@ class MagentoInstaller
 
   protected function cleanUpFile()
   {
-    unlink(str_replace('.gz', '', $this->archive_name));
     unlink($this->archive_name);
+    unlink(str_replace('.gz', '', $this->archive_name));
   }
 }
